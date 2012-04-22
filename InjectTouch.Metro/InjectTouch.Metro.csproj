@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2FF1A66-696F-4653-AA3D-9BEF180B8D66}</ProjectGuid>
+    <ProjectGuid>{FBB7C221-8032-4BBC-BB14-29F86D78C29A}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>InjectTouch.Metro</RootNamespace>
@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>InjectTouch.Metro_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>FEA2D6D52ADB036582A25D145A570D2CEA6F3D61</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>B3AA04BB8C95268D55F3FCDDD5518FC286122BD7</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -163,8 +163,13 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>COPY "$(ProjectDir)..\Debug\InjectTouch.dll" $(TargetDir) /Y
-COPY "$(ProjectDir)..\Debug\InjectTouch.dll" $(TargetDir)\AppX /Y</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>COPY "$(ProjectDir)..\Debug\InjectTouch.dll" "$(TargetDir)" /Y
+MD "$(TargetDir)AppX\"
+COPY "$(ProjectDir)..\Debug\InjectTouch.dll" "$(TargetDir)AppX" /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

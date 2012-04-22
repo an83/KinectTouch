@@ -12,9 +12,16 @@ namespace InjectTouch.CSharp
         [DllImport("InjectTouch.dll")]
         public static extern void InjectTouch();
 
+        [DllImport("InjectTouch.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void Drag(int x, int y);
+
+
         static void Main(string[] args)
         {
-            InjectTouch();
+            Console.WriteLine("Enter to start");
+            Console.ReadLine();
+
+            Drag(300, 300);
         }
     }
 }
